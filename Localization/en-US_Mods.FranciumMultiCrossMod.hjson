@@ -1,0 +1,33 @@
+Items: {
+	RiftEnchantment: {
+		DisplayName: Rift Enchantment
+		Tooltip:
+			'''
+			The damage boost will increase as health gets lower.
+			Perpetually Keeps your weapons at full charge.
+			Getting hit will release a random number of rift stars that will home in on enemies.
+			'''
+	}
+
+	TenebrisEnchantment: {
+		Tooltip:
+			'''
+			Hits will spawn a clone that travel in the opposite direction of you, allowing you to teleport to safety.
+			Clones despawn after 4 seconds.
+			20 Second Cooldown.
+			Getting hit will release a random number of tenebris stars that will home in on enemies.
+			'''
+		DisplayName: Tenebris Enchantment
+	}
+
+	HeliciteEnchantment: {
+		Tooltip:
+			'''
+			You will survive a hit that would have killed you and be returned to half health, and inficted with Daylight Overload.
+			2 minute cooldown
+			'''
+		DisplayName: Helicite Enchantment
+	}
+}
+
+Projectiles.RiftStar.DisplayName: Rift Star
