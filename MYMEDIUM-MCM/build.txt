@@ -1,5 +1,5 @@
 displayName = MY MEDIUM - Cross Mod Et Cetera
 author = Constantine The Wyvern
-version = 1.33
+version = 1.2
 modReferences = FargowiltasSouls, DestroyerTest, InnoVault
 dependencies = FargowiltasSouls, DestroyerTest, InnoVault

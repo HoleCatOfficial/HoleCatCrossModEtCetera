@@ -28,15 +28,6 @@ Items: {
 			'''
 		DisplayName: Helicite Enchantment
 	}
-
-	Netrahalis: {
-		DisplayName: Netrahalis
-		Tooltip: "'Like the Arkhalis, but Cooler!!'"
-	}
 }
 
-Projectiles: {
-	RiftStar.DisplayName: Rift Star
-	NetrahalisSlice.DisplayName: Netrahalis Slice
-	NetrahalisProjectile.DisplayName: Netrahalis Projectile
-}
+Projectiles.RiftStar.DisplayName: Rift Star
