@@ -16,7 +16,6 @@ using Terraria.DataStructures;
 using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Content.Projectiles.Tenebrouskatana;
 using System.Runtime.CompilerServices;
-using DestroyerTest.Content.MetallurgySeries;
 using DestroyerTest.Content.Magic;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.RangedItems;

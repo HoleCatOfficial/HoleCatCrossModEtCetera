@@ -1,8 +1,0 @@
-This mod serves to add Cross-Mod content that is either too small or too few to warrant its own mod.
-
-Currently added:
-- Fargos Enchantments for Living Shadows, Helicite, and Tenebris
-
-Planned:
-- SotS
-- Thorium

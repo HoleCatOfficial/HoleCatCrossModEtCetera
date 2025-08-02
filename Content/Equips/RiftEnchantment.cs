@@ -47,7 +47,6 @@ namespace FranciumMultiCrossMod.Content.Equips
         {
             CreateRecipe()
                 .AddIngredient<Living_Shadow>(300)
-                .AddIngredient<RiftplateWire>(25)
                 .AddIngredient<ShadowCircuitry>(25)
                 .AddIngredient<RiftBroadsword>()
                 .AddIngredient<RiftChakram>()
