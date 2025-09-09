@@ -15,7 +15,7 @@ namespace FranciumMultiCrossMod
 	// Please read https://github.com/tModLoader/tModLoader/wiki/Basic-tModLoader-Modding-Guide#mod-skeleton-contents for more information about the various files in a mod.
 	public class FranciumMultiCrossMod : Mod
 	{
-	public static bool EternityModeEnabled = WorldSavingSystem.ShouldBeEternityMode;
+	public static bool EternityModeEnabled = WorldSavingSystem.EternityMode;
 
     public override object Call(params object[] args)
     {
