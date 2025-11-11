@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 using DestroyerTest.Content.Tiles.RiftConfigurator;
 using DestroyerTest.Content.Resources;
 using DestroyerTest.Content.RiftArsenal;
-using DestroyerTest.Content.Magic.ScepterSubclass;
 using DestroyerTest.Content.Equips;
 using DestroyerTest.Common;
 using FranciumMultiCrossMod.Content.Projectiles;

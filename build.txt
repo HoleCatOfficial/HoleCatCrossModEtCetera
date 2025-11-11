@@ -1,5 +1,5 @@
 displayName = HoleCat's Cross Mod Et Cetera
 author = HoleCat
-version = 1.341
+version = 1.342
 modReferences = FargowiltasSouls, DestroyerTest, InnoVault
 dependencies = FargowiltasSouls, DestroyerTest, InnoVault
