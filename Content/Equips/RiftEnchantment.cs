@@ -6,12 +6,13 @@ using Terraria.ModLoader;
 using DestroyerTest.Content.Tiles.RiftConfigurator;
 using DestroyerTest.Content.Resources;
 using DestroyerTest.Content.RiftArsenal;
-using DestroyerTest.Content.Magic.ScepterSubclass;
 using DestroyerTest.Content.Equips;
 using DestroyerTest.Common;
 using FranciumMultiCrossMod.Content.Projectiles;
 using Microsoft.Xna.Framework;
 using DestroyerTest.Rarity;
+using DestroyerTest.Content.Scepter;
+using DestroyerTest.Content.Projectiles;
 
 namespace FranciumMultiCrossMod.Content.Equips
 {
@@ -47,7 +48,6 @@ namespace FranciumMultiCrossMod.Content.Equips
         {
             CreateRecipe()
                 .AddIngredient<Living_Shadow>(300)
-                .AddIngredient<RiftplateWire>(25)
                 .AddIngredient<ShadowCircuitry>(25)
                 .AddIngredient<RiftBroadsword>()
                 .AddIngredient<RiftChakram>()
@@ -105,7 +105,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                         Player.GetSource_OnHurt(npc),
                         Player.Center,
                         new Vector2(Main.rand.NextFloat(-3f, 3f), -1f),
-                        ModContent.ProjectileType<RiftStar>(),
+                        ModContent.ProjectileType<RiftStarFriendly>(),
                         15,
                         1f,
                         Player.whoAmI
@@ -126,7 +126,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                             Player.GetSource_OnHurt(proj),
                             Player.Center,
                             new Vector2(Main.rand.NextFloat(-3f, 3f), -1f),
-                            ModContent.ProjectileType<RiftStar>(),
+                            ModContent.ProjectileType<RiftStarFriendly>(),
                             15,
                             1f,
                             Player.whoAmI

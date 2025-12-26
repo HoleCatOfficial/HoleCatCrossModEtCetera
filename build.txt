@@ -1,5 +1,5 @@
-displayName = MY MEDIUM - Cross Mod Et Cetera
-author = Constantine The Wyvern
-version = 1.33
+displayName = Talid Mod - Miscellaneous Cross-Mod Content
+author = HoleCat
+version = 1.400
 modReferences = FargowiltasSouls, DestroyerTest, InnoVault
 dependencies = FargowiltasSouls, DestroyerTest, InnoVault

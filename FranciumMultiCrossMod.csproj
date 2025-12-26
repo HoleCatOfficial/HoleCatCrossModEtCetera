@@ -5,17 +5,16 @@
 
 	<!-- General -->
 	<PropertyGroup>
-		
 	</PropertyGroup>
 	<ItemGroup>
 	  <Reference Include="DestroyerTest">
-	    <HintPath>..\ModAssemblies\DestroyerTest_v2.1.65.dll</HintPath>
+	    <HintPath>..\ModAssemblies\DestroyerTest_v2.1.7125.dll</HintPath>
 	  </Reference>
 	  <Reference Include="FargowiltasSouls">
-	    <HintPath>..\ModAssemblies\FargowiltasSouls_v1.7.2.14.dll</HintPath>
+	    <HintPath>..\ModAssemblies\FargowiltasSouls_v1.7.3.1.dll</HintPath>
 	  </Reference>
 	  <Reference Include="InnoVault">
-	    <HintPath>..\ModAssemblies\InnoVault_v1.9.33.dll</HintPath>
+	    <HintPath>..\ModAssemblies\InnoVault_v1.9.78.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 

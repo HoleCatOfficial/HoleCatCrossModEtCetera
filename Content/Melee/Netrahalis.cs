@@ -36,8 +36,8 @@ namespace FranciumMultiCrossMod.Content.Melee
 
 			// Weapon Properties
 			Item.autoReuse = true;
-			Item.knockBack = 3;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
-			Item.damage = 34; // The damage of your sword, this is dynamically adjusted in the projectile code.
+			Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
+			Item.damage = 30; // The damage of your sword, this is dynamically adjusted in the projectile code.
 			Item.DamageType = DamageClass.MeleeNoSpeed; // Deals melee damage
 			Item.noMelee = true;  // This makes sure the item does not deal damage from the swinging animation
 			Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
@@ -156,12 +156,12 @@ namespace FranciumMultiCrossMod.Content.Melee
 		{
 			if (ModLoader.TryGetMod("SOTS", out Mod SOTS))
 			{
-				if (SOTS.TryFind("OtherworldlyAlloy", out ModItem OA))
+				if (SOTS.TryFind("TwilightAlloy", out ModItem TA))
 				{
 					CreateRecipe()
 						.AddIngredient(ItemID.Arkhalis)
 						.AddIngredient(ItemID.Terragrim)
-						.AddIngredient(OA.Type, 5)
+						.AddIngredient(TA.Type)
 						.AddTile(TileID.Anvils)
 						.Register();
 				}

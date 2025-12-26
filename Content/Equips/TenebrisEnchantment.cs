@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 using DestroyerTest.Content.Tiles.RiftConfigurator;
 using DestroyerTest.Content.Resources;
 using DestroyerTest.Content.RiftArsenal;
-using DestroyerTest.Content.Magic.ScepterSubclass;
 using DestroyerTest.Content.Equips;
 using DestroyerTest.Common;
 using FranciumMultiCrossMod.Content.Projectiles;
@@ -14,9 +13,7 @@ using Microsoft.Xna.Framework;
 using DestroyerTest.Rarity;
 using Terraria.DataStructures;
 using DestroyerTest.Content.Projectiles;
-using DestroyerTest.Content.Projectiles.Tenebrouskatana;
 using System.Runtime.CompilerServices;
-using DestroyerTest.Content.MetallurgySeries;
 using DestroyerTest.Content.Magic;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.RangedItems;
@@ -98,7 +95,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                         Player.GetSource_OnHurt(npc),
                         Player.Center,
                         new Vector2(Main.rand.NextFloat(-3f, 3f), -1f),
-                        ModContent.ProjectileType<TenebrisStar>(),
+                        ModContent.ProjectileType<TenebrisStarFriendly>(),
                         25,
                         1f,
                         Player.whoAmI
@@ -132,7 +129,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                         Player.GetSource_OnHurt(proj),
                         Player.Center,
                         new Vector2(Main.rand.NextFloat(-3f, 3f), -1f),
-                        ModContent.ProjectileType<TenebrisStar>(),
+                        ModContent.ProjectileType<TenebrisStarFriendly>(),
                         25,
                         1f,
                         Player.whoAmI
