@@ -34,6 +34,5 @@ namespace FranciumMultiCrossMod
                 return null;
         }
     }
-
 	}
 }
