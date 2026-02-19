@@ -3,6 +3,7 @@ Items: {
 		DisplayName: Rift Enchantment
 		Tooltip:
 			'''
+			Combines the effects of the Shine-Shade Deck, 
 			The damage boost will increase as health gets lower.
 			Perpetually Keeps your weapons at full charge.
 			Getting hit will release a random number of rift stars that will home in on enemies.

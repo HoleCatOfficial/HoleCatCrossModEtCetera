@@ -13,7 +13,6 @@ using Microsoft.Xna.Framework;
 using DestroyerTest.Rarity;
 using Terraria.DataStructures;
 using DestroyerTest.Content.Projectiles;
-using System.Runtime.CompilerServices;
 using DestroyerTest.Content.Magic;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.RangedItems;
@@ -33,16 +32,13 @@ namespace FranciumMultiCrossMod.Content.Equips
             Item.width = 34;
             Item.height = 38;
             Item.accessory = true;
-            Item.rare = ModContent.RarityType<RiftRarity1>();
+            Item.rare = ModContent.RarityType<ShimmeringRarity>();
             Item.value = Item.sellPrice(platinum: 4);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            LivingShadowPlayer player2 = player.GetModPlayer<LivingShadowPlayer>();
             TenebrisEnchantmentPlayer TEPlayer = player.GetModPlayer<TenebrisEnchantmentPlayer>();
-            player2.LivingShadowCurrent = player2.LivingShadowMax2;
-
             TEPlayer.tenebrisEnchantment = true;
         }
         

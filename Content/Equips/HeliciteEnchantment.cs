@@ -19,6 +19,8 @@ using DestroyerTest.Content.Buffs;
 using Terraria.Audio;
 using InnoVault.PRT;
 using FranciumMultiCrossMod.Content.Particles;
+using DestroyerTest.Content.Equips.ScepterAccessories;
+using DestroyerTest.Content.Equips.Cards.RiftenDeck;
 
 namespace FranciumMultiCrossMod.Content.Equips
 {
@@ -39,14 +41,7 @@ namespace FranciumMultiCrossMod.Content.Equips
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            LivingShadowPlayer player2 = player.GetModPlayer<LivingShadowPlayer>();
             HeliciteEnchantmentPlayer HEPlayer = player.GetModPlayer<HeliciteEnchantmentPlayer>();
-            player2.LivingShadowCurrent = player2.LivingShadowMax2;
-
-            float lifePercent = (float)player.statLife / player.statLifeMax2;
-            float dynamicBonus = MultiplicativeDamageBonus + ((1f - lifePercent) * MultiplicativeDamageBonus * 2);
-            player.GetDamage(DamageClass.Generic) *= 1f + (dynamicBonus / 100f);
-
             HEPlayer.HeliciteEnchantment = true;
         }
         
@@ -58,16 +53,15 @@ namespace FranciumMultiCrossMod.Content.Equips
                 .AddIngredient<HeliciteShank>()
                 .AddIngredient<HeliciteChausses>()
                 .AddIngredient<HeliciteRobe>()
+                .AddIngredient<HelicitePendant>()
                 .AddIngredient<HeliciteHeadgear>()
+                .AddIngredient<HeliciteHeadpiece>()
                 .AddIngredient<HeliciteCowl>()
                 .AddTile<Tile_RiftConfiguratorTools>()
                 .Register();
         }
 	}
 
-
-    // Some movement effects are not suitable to be modified in ModItem.UpdateAccessory due to how the math is done.
-    // ModPlayer.PostUpdateRunSpeeds is suitable for these modifications.
     public class HeliciteEnchantmentPlayer : ModPlayer
     {
         public bool HeliciteEnchantment = false;
@@ -99,36 +93,35 @@ namespace FranciumMultiCrossMod.Content.Equips
         }
 
         private void TrySurviveFatalHit(Player.HurtInfo hurtInfo)
-            {
-                if (!HeliciteEnchantment || currentCooldown > 0)
-                return;
+        {
+            if (!HeliciteEnchantment || currentCooldown > 0)
+            return;
 
-                if (hurtInfo.Damage > Player.statLife)
-                {
+            if (hurtInfo.Damage > Player.statLife)
+            {
                 Player.GetModPlayer<ScreenshakePlayer>().screenshakeTimer = 5;
-			    Player.GetModPlayer<ScreenshakePlayer>().screenshakeMagnitude = 16;
+                Player.GetModPlayer<ScreenshakePlayer>().screenshakeMagnitude = 16;
                 PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp1>(), Player.Center, Vector2.Zero, ColorLib.Rift, 1f);
                 SoundEngine.PlaySound(SoundID.DeerclopsIceAttack with { Volume = 1.50f }, Player.position);
                 Player.statLife = Player.statLifeMax2 / 2;
                 CombatText.NewText(Player.getRect(), ColorLib.Rift, "Death Evaded!", true);
-                Player.AddBuff(ModContent.BuffType<DaylightOverload>(), 1200); // 10 seconds of Bleeding debuff
+                Player.AddBuff(ModContent.BuffType<DaylightOverload>(), 600); // 10 seconds of Bleeding debuff
                 currentCooldown = Cooldown;
                 hurtInfo.Damage = 0;
                 //Player.NinjaDodge(); // Optional: visual effect
-                }
             }
+        }
             
         
 
-         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
+        public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
-
             TrySurviveFatalHit(hurtInfo);
         }
 
         public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
-            {
-                TrySurviveFatalHit(hurtInfo);
-            }
+        {
+            TrySurviveFatalHit(hurtInfo);
+        }
     }
 }
