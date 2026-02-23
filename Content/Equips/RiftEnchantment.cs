@@ -53,6 +53,10 @@ namespace FranciumMultiCrossMod.Content.Equips
             {
                 shield.Active = true;
             }
+            if (player.TryGetModPlayer<RiftCanisterPlayer>(out var Canister))
+            {
+                Canister.Active = true;
+            }
             player.statDefense += 10;
 
             foreach (Item item in Main.item)
@@ -98,6 +102,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                 .AddIngredient<RiftPlateBerserkerHelm>()
                 .AddIngredient<RiftPropulsion>()
                 .AddIngredient<ShineShadeDeck>()
+                .AddIngredient<RiftCanister>()
                 .AddTile<Tile_RiftConfiguratorTools>()
                 .Register();
         }

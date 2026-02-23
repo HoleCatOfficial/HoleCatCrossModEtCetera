@@ -1,4 +1,4 @@
-displayName = Talid Mod - Miscellaneous Cross-Mod Content
+displayName = [c/ff9900:Talid Mod]: Miscellaneous DLC
 author = HoleCat
 version = 1.401
 modReferences = FargowiltasSouls, DestroyerTest, InnoVault

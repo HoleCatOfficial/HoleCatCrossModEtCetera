@@ -16,6 +16,7 @@ namespace FranciumMultiCrossMod.Content.Projectiles
 
         public override void SetDefaults()
         {
+            base.SetDefaults();
             themeColor = Color.HotPink;
             Blending = true;
             DustVelocityMultiplier = 2.67f;
@@ -24,6 +25,7 @@ namespace FranciumMultiCrossMod.Content.Projectiles
         // Custom AI
         public override void AI()
         {
+            base.AI();
             Projectile.velocity *= 0.95f;
 
             Vector2 spawnOffset = Main.rand.NextVector2Circular(90f, 90f);
