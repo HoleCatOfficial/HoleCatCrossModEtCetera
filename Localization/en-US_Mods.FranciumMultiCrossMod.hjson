@@ -36,24 +36,26 @@ Items: {
 	}
 
 	VesperEnchantment: {
-		Tooltip:'''
-				[i:DestroyerTest/MalakhimChaplet][i:DestroyerTest/MalakhimPlates] Press Down to shoot out solid vesper spikes in all directions that penetrate infinitely and inflict bleeding.
-				[i:DestroyerTest/MalakhimChaplet][i:DestroyerTest/MalakhimPlates] You get more immunity time when damaged.
-				+50% melee weapon scale.
-				+10% Critical Strike Chance.
-				Reduces incoming knockback by half.
-				'''
+		Tooltip:
+			'''
+			[i:DestroyerTest/MalakhimChaplet][i:DestroyerTest/MalakhimPlates] Press Down to shoot out solid vesper spikes in all directions that penetrate infinitely and inflict bleeding.
+			[i:DestroyerTest/MalakhimChaplet][i:DestroyerTest/MalakhimPlates] You get more immunity time when damaged.
+			+50% melee weapon scale.
+			+10% Critical Strike Chance.
+			Reduces incoming knockback by half.
+			'''
 		DisplayName: Vesper Enchantment
 	}
 
 	StellarEnchantment: {
-		Tooltip:'''
-				[i:DestroyerTest/GalantineIncense] Being hit by a NPC or Projectile will create  a small burst of homing stars.
-				[i:DestroyerTest/GalantineIncense] You are immune to Galantine Burn.
-				[i:DestroyerTest/GalantineIncense] Both your weapons and your scepters inflict Galantine Burn.
-				[i:DestroyerTest/StellarManuscript] Throwing a scepter has a chance to summon a burst of Galantine Stars, inflicting Galantine Burn.
-				[i:DestroyerTest/StellarManuscript]Throwing a scepter has a chance to rain down stars from the sky.
-				'''
+		Tooltip:
+			'''
+			[i:DestroyerTest/GalantineIncense] Being hit by a NPC or Projectile will create  a small burst of homing stars.
+			[i:DestroyerTest/GalantineIncense] You are immune to Galantine Burn.
+			[i:DestroyerTest/GalantineIncense] Both your weapons and your scepters inflict Galantine Burn.
+			[i:DestroyerTest/StellarManuscript] Throwing a scepter has a chance to summon a burst of Galantine Stars, inflicting Galantine Burn.
+			[i:DestroyerTest/StellarManuscript]Throwing a scepter has a chance to rain down stars from the sky.
+			'''
 		DisplayName: Stellar Enchantment
 	}
 }
