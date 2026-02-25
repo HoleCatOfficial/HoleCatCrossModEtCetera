@@ -148,7 +148,8 @@ namespace FranciumMultiCrossMod.Content.Equips
                         }
                         if (FranciumMultiCrossMod.EnchantmentKeybind1.JustPressed)
                         {
-                            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<AuraThiefSigil>(), Player.Center, Vector2.Zero, Color.SkyBlue, 0.01f, 2f);
+                            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<AuraThiefSigil>(), Player.Center, Vector2.Zero, Color.SkyBlue, 1f, 2f);
+                            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<AuraThiefSigil>(), Player.Center, Vector2.Zero, Color.White, 0.75f, 1.75f);
                             SoundEngine.PlaySound(SoundID.DD2_WyvernScream, Player.Center);
 
                             ImmTimer = 300;

@@ -95,11 +95,22 @@ namespace FranciumMultiCrossMod.Content.Equips
             }
         }
 
+        public override void ModifyManaCost(Item item, ref float reduce, ref float mult)
+        {
+            if (Active)
+            {
+                if (item.DamageType == DamageClass.Magic)
+                {
+                    mult *= 0.8f;
+                }
+            }
+        }
+
         public override void ModifyWeaponCrit(Item item, ref float crit)
         {
             if (Active)
             {
-                crit += 10;
+                crit += 15;
             }
         }
 

@@ -68,6 +68,19 @@ Items: {
 			Once you have accrued 20 vitality, pressing [Enchantment Keybind I] will grant the player 5 seconds of invulnerability.
 			'''
 	}
+
+	AetherianEnchantment: {
+		Tooltip:
+			'''
+			[i:DestroyerTest/AetherianHood] Thrown scepters do not collide with tiles.
+
+			Creates a reflective 30-point shield around the player.
+			Harmful projectiles are converted into friendly homing light darts.
+			When the shield breaks, it releases 5 darts in all directions.
+			Does not protect against NPC contact damage.
+			'''
+		DisplayName: Aetherian Enchantment
+	}
 }
 
 Projectiles: {
