@@ -8,13 +8,16 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <Reference Include="DestroyerTest">
-	    <HintPath>..\ModAssemblies\DestroyerTest_v2.1.7247.dll</HintPath>
+	    <HintPath>..\ModAssemblies\DestroyerTest_v2.1.7249.dll</HintPath>
 	  </Reference>
 	  <Reference Include="FargowiltasSouls">
 	    <HintPath>..\ModAssemblies\FargowiltasSouls_v1.7.3.1.dll</HintPath>
 	  </Reference>
 	  <Reference Include="InnoVault">
 	    <HintPath>..\ModAssemblies\InnoVault_v1.9.78.dll</HintPath>
+	  </Reference>
+	  <Reference Include="OpusLib">
+	    <HintPath>..\ModAssemblies\OpusLib_v1.424.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 

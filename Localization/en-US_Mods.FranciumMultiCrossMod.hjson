@@ -58,10 +58,26 @@ Items: {
 			'''
 		DisplayName: Stellar Enchantment
 	}
+
+	AuraThiefEnchantment: {
+		DisplayName: Aura Thief Enchantment
+		Tooltip:
+			'''
+			A spirit amalgam will follow you, granting 30% increased melee speed within its radius of influence.
+			Not getting hit for longer than 4 seconds while a boss is alive will accrue vitality.
+			Once you have accrued 20 vitality, pressing [Enchantment Keybind I] will grant the player 5 seconds of invulnerability.
+			'''
+	}
 }
 
 Projectiles: {
 	RiftStar.DisplayName: Rift Star
 	NetrahalisSlice.DisplayName: Netrahalis Slice
 	NetrahalisProjectile.DisplayName: Netrahalis Projectile
+	SpiritAmalgam.DisplayName: Spirit Amalgam
+}
+
+Keybinds: {
+	EnchantmentKeybindI.DisplayName: Enchantment Keybind I
+	"Enchantment Keybind I.DisplayName": Mods.FranciumMultiCrossMod.Keybinds.Enchantment Keybind I.DisplayName
 }

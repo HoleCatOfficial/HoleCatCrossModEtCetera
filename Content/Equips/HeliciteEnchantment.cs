@@ -21,6 +21,8 @@ using InnoVault.PRT;
 using FranciumMultiCrossMod.Content.Particles;
 using DestroyerTest.Content.Equips.ScepterAccessories;
 using DestroyerTest.Content.Equips.Cards.RiftenDeck;
+using Terraria.DataStructures;
+using FranciumMultiCrossMod.Common;
 
 namespace FranciumMultiCrossMod.Content.Equips
 {
@@ -43,6 +45,15 @@ namespace FranciumMultiCrossMod.Content.Equips
         {
             HeliciteEnchantmentPlayer HEPlayer = player.GetModPlayer<HeliciteEnchantmentPlayer>();
             HEPlayer.HeliciteEnchantment = true;
+        }
+
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)
+        {
+            if (player.armor[0].type == ModContent.ItemType<HallowedPall>())
+            {
+                return false;
+            }
+            return true;
         }
         
         public override void AddRecipes()
@@ -69,26 +80,83 @@ namespace FranciumMultiCrossMod.Content.Equips
         public int Cooldown = 7200;
         public int currentCooldown = 0;
 
+
+        //NOTE: All ported back from Hallowed Pall. Its like a snowball! (hey that rhymes!)
+        public float BarScale = 0f;
+		public float TextScale = 0f;
+		public float BarOpacity = 0f;
+		public int TimeDisplay = 0;
+
         public override void ResetEffects()
-            {
-                base.ResetEffects();
-                HeliciteEnchantment = false;
-            }
+        {
+            base.ResetEffects();
+            HeliciteEnchantment = false;
+        }
 
         public override void OnRespawn()
         {
             currentCooldown = 0;
         }
 
+        public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
+        {
+			float progress = (float)currentCooldown / (float)Cooldown;
+            if (HeliciteEnchantment && currentCooldown > 0)
+			{
+				if (drawInfo.shadow == 0)
+				{
+					Bar.DrawHeliciteChargeBar(BarScale, (drawInfo.drawPlayer.Center + new Vector2(0, 40)) - Main.screenPosition, progress, BarOpacity);
+					Utils.DrawBorderString(Main.spriteBatch, TimeDisplay.ToString(), (drawInfo.drawPlayer.Center + new Vector2(0, 58)) - Main.screenPosition, ColorLib.Rift * BarOpacity, TextScale, 0.5f, 0.5f);
+				}
+			}
+        }
+
         public override void PostUpdate()
         {
             if (currentCooldown > 0)
+            {
                 currentCooldown--;
+                if (BarScale < 1f)
+                {
+                    BarScale += 0.05f;
+                }
+                if (BarOpacity < 1f)
+                {
+                    BarOpacity += 0.05f;
+                }
+
+                if (TextScale < 0.5f)
+                {
+                    TextScale += 0.025f;
+                }
+
+                if (currentCooldown % 60 == 0)
+                {
+                    TimeDisplay -= 1;
+                }
+            }
 
             if (currentCooldown == 1)
             {
                 SoundEngine.PlaySound(new SoundStyle("FranciumMultiCrossMod/Assets/Audio/HeliciteEnchantmentRegen"), Player.position);
                 PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp2>(), Player.Center, Vector2.Zero, ColorLib.Rift, 3f);
+            }
+
+            if (currentCooldown <= 0)
+            {
+                if (BarScale > 0f)
+                {
+                    BarScale -= 0.05f;
+                }
+                if (BarOpacity > 0f)
+                {
+                    BarOpacity -= 0.05f;
+                }
+
+                if (TextScale > 0f)
+                {
+                    TextScale -= 0.025f;
+                }
             }
         }
 
@@ -107,6 +175,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                 CombatText.NewText(Player.getRect(), ColorLib.Rift, "Death Evaded!", true);
                 Player.AddBuff(ModContent.BuffType<DaylightOverload>(), 600); // 10 seconds of Bleeding debuff
                 currentCooldown = Cooldown;
+                TimeDisplay = (Cooldown / 60);
                 hurtInfo.Damage = 0;
                 //Player.NinjaDodge(); // Optional: visual effect
             }
@@ -122,6 +191,15 @@ namespace FranciumMultiCrossMod.Content.Equips
         public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
         {
             TrySurviveFatalHit(hurtInfo);
+        }
+
+        public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
+        {
+            currentCooldown = 0;
+			TimeDisplay = 0;
+			BarScale = 0f;
+			TextScale = 0f;
+			BarOpacity = 0f;
         }
     }
 }

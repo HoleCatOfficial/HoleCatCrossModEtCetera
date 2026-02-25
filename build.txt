@@ -1,5 +1,5 @@
 displayName = [c/ff9900:Talid Mod]: Miscellaneous DLC
 author = HoleCat
-version = 1.401
+version = 1.402
 modReferences = FargowiltasSouls, DestroyerTest, InnoVault
 dependencies = FargowiltasSouls, DestroyerTest, InnoVault
