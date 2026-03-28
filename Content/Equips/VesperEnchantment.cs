@@ -64,7 +64,6 @@ namespace FranciumMultiCrossMod.Content.Equips
                 .AddIngredient<Vesper>(25)
                 .AddIngredient<Goliath>()
                 .AddIngredient<Quixotism>()
-                .AddIngredient<Dreampoon>()
                 .AddIngredient<Ambition>()
                 .AddIngredient<SpearOfAspiration>()
                 .AddIngredient<HypnicJerk>()
