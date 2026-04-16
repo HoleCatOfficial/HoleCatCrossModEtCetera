@@ -1,5 +1,5 @@
 displayName = [c/bfbef1:Talid Mod]: Miscellaneous DLC
 author = HoleCat
-version = 1.404
+version = 1.406
 modReferences = FargowiltasSouls, DestroyerTest, InnoVault
 dependencies = FargowiltasSouls, DestroyerTest, InnoVault

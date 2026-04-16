@@ -24,6 +24,7 @@ using DestroyerTest.Content.Equips.ScepterAccessories;
 using DestroyerTest.Content.Consumables;
 using DestroyerTest.Content.SummonItems;
 using DestroyerTest.Content.Buffs;
+using DestroyerTest.Content.MeleeWeapons;
 
 namespace FranciumMultiCrossMod.Content.Equips
 {
