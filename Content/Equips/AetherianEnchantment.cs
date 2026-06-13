@@ -114,70 +114,35 @@ namespace FranciumMultiCrossMod.Content.Equips
 
     }
 
-    public class AetherianShieldPlayer : ModPlayer
+    public class AetherianShieldPlayer : ShieldPlayer
     {
-        public int MaxDurability = 30;
+        public override int MaxDurability => 30;
 
-        public int Durability = 30;
+        public override int Durability => 30;
 
-        public int Radius = 60;
+        public override int Radius => 60;
 
-        public bool Active = false;
 
-        public bool Absorb = false;
 
-        public bool Recharge = false;
+        public override Color themeColor => DTColorUtils.Pastel(Main.DiscoColor, 0.5f);
 
-        public Color themeColor = DTColorUtils.Pastel(Main.DiscoColor, 0.5f);
-
-        public SoundStyle Regen = SoundID.Item130;
+        public override SoundStyle Regen => SoundID.Item130;
     
-        public SoundStyle Hit = SoundID.Item150;
+        public override SoundStyle Hit => SoundID.Item150;
         /// <summary>
-        public SoundStyle Break = SoundID.DD2_KoboldExplosion;
+        public override SoundStyle Break => SoundID.DD2_KoboldExplosion;
 
-        public NetworkText[] DeathMSGs = new NetworkText[4];
-        public int RechargeHealthTax = 3;
-
-        public virtual int Priority {get; set;} = 0;
+        public override NetworkText[] DeathMSGs => new NetworkText[4];
+        public override int RechargeHealthTax => 3;
 
 
         public override void ResetEffects()
         {
-            MathHelper.Clamp(Priority, 0, 10);
             Active = false;
-        }
-
-        public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
-        {
-            DTUtils Utility = new DTUtils();
-            Vector2 drawPos = Player.Center - Main.screenPosition;
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            drawPos.Y -= 200;
-
-            string text = $"{Durability.ToString()} / {MaxDurability.ToString()}";
-
-            if (Active)
-            {
-                Utils.DrawBorderString(spriteBatch, text, drawPos, themeColor, 2f, 0.5f, 0.5f);
-            }
         }
 
         public override void PostUpdateEquips()
         {
-            themeColor = DTColorUtils.Pastel(Main.DiscoColor, 0.5f);
-            var shieldManager = ShieldManager.Instance;
-            if (shieldManager == null)
-                return;
-
-            if (Active)
-            {
-                if (Durability >= MaxDurability && !Recharge)
-                {
-                    Absorb = true;
-                }
-            }
-
             if (Active && Absorb && !Recharge)
             {
                 foreach (Projectile p in Main.projectile)
@@ -203,7 +168,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                     for (int y = 0; y < 9; y++)
                     {
                         PRTLoader.NewParticle(
-                            PRTLoader.GetParticleID<SparkParticle>(),
+                            PRTLoader.GetParticleID<SparkParticlemmm>(),
                             p.Center,
                             new Vector2(Main.rand.NextFloat(-2f, 2.1f), Main.rand.NextFloat(-4f, -6.1f)),
                             themeColor,
