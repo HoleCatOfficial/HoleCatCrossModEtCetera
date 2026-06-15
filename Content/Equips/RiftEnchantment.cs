@@ -87,7 +87,10 @@ namespace FranciumMultiCrossMod.Content.Equips
                 .AddIngredient<RiftBroadsword>()
                 .AddIngredient<RiftClaymore>()
                 .AddIngredient<RiftPhasesaber>()
+<<<<<<< HEAD
                 .AddIngredient<RiftRipper>()
+=======
+>>>>>>> 0e282864b50c13aa88a4092b9c15859b9b820c22
                 .AddIngredient<RiftScabbard>()
                 .AddIngredient<RiftElectroscythe>()
                 .AddIngredient<RiftScepter>()
