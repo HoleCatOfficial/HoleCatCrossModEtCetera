@@ -21,7 +21,6 @@ namespace FranciumMultiCrossMod.Content.Equips
 {
     public class TenebrisEnchantment : ModItem
     {
-        // By declaring these here, changing the values will alter the effect, and the tooltip
         public override void SetStaticDefaults()
         {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 33));

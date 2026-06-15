@@ -1,21 +1,22 @@
 
+using DestroyerTest.Common;
+using DestroyerTest.Content.Dusts;
+using DestroyerTest.Content.Equips;
+using DestroyerTest.Content.Equips.Cards.RiftenDeck;
+using DestroyerTest.Content.Projectiles;
+using DestroyerTest.Content.Resources;
+using DestroyerTest.Content.RiftArsenal;
+using DestroyerTest.Content.Scepter;
+using DestroyerTest.Content.Tiles.RiftConfigurator;
+using DestroyerTest.Rarity;
+using FranciumMultiCrossMod.Content.Projectiles;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using DestroyerTest.Content.Tiles.RiftConfigurator;
-using DestroyerTest.Content.Resources;
-using DestroyerTest.Content.RiftArsenal;
-using DestroyerTest.Content.Equips;
-using DestroyerTest.Common;
-using FranciumMultiCrossMod.Content.Projectiles;
-using Microsoft.Xna.Framework;
-using DestroyerTest.Rarity;
-using DestroyerTest.Content.Scepter;
-using DestroyerTest.Content.Projectiles;
-using DestroyerTest.Content.Equips.Cards.RiftenDeck;
-using Terraria.Audio;
-using DestroyerTest.Content.Dusts;
 
 namespace FranciumMultiCrossMod.Content.Equips
 {
@@ -23,6 +24,17 @@ namespace FranciumMultiCrossMod.Content.Equips
     {
         public static readonly int MultiplicativeDamageBonus = 8;
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(MultiplicativeDamageBonus);
+
+        public Shield RiftEnchantShield = new Shield("HollowShield3", 500, 200, ColorLib.Rift, new SoundStyle("FranciumMultiCrossMod/Assets/Audio/RiftEnchantmentShieldRegen"), DTAssetLib.Impacts.Deflect, DTAssetLib.Impacts.HeatseekerSilohSlam,
+           new List<NetworkText>()
+           {
+                NetworkText.FromLiteral($"{Main.LocalPlayer.name} felt a little hollow inside."),
+                NetworkText.FromLiteral($"{Main.LocalPlayer.name} gave a little too much in return for too little."),
+                NetworkText.FromLiteral($"{Main.LocalPlayer.name} fell victim to the eclipse."),
+                NetworkText.FromLiteral($"{Main.LocalPlayer.name} didnt have it in them to sustain their shield.")
+           },
+           10, 16
+       );
 
         public override void SetDefaults()
         {
@@ -49,10 +61,9 @@ namespace FranciumMultiCrossMod.Content.Equips
             player.GetAttackSpeed(DamageClass.Ranged) *= 0.95f;
             player.GetArmorPenetration(DamageClass.Generic) += 6;
 
-            if (player.TryGetModPlayer<HollowShield>(out var shield))
-            {
-                shield.Active = true;
-            }
+
+           
+            
             if (player.TryGetModPlayer<RiftCanisterPlayer>(out var Canister))
             {
                 Canister.Active = true;
@@ -74,12 +85,11 @@ namespace FranciumMultiCrossMod.Content.Equips
                 .AddIngredient<Living_Shadow>(300)
                 .AddIngredient<ShadowCircuitry>(25)
                 .AddIngredient<RiftBroadsword>()
-                .AddIngredient<RiftChakram>()
                 .AddIngredient<RiftClaymore>()
                 .AddIngredient<RiftPhasesaber>()
-                .AddIngredient<RiftRevolver>()
+                .AddIngredient<RiftRipper>()
                 .AddIngredient<RiftScabbard>()
-                .AddIngredient<RiftScythe>()
+                .AddIngredient<RiftElectroscythe>()
                 .AddIngredient<RiftScepter>()
                 .AddIngredient<RiftSpine>()
                 .AddIngredient<RiftStaff>()
