@@ -151,7 +151,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                         }
                         if (FranciumMultiCrossMod.EnchantmentKeybind1.JustPressed)
                         {
-                            var P = AuraThiefSigil.Create(60, Player.Center, Vector2.Zero, 0f);
+                            var P = AuraThiefSigil.Create(30, Player.Center, Vector2.Zero, 0f);
                             ParticleEngine.Particles.Add(P);
 ;
                             SoundEngine.PlaySound(SoundID.DD2_WyvernScream, Player.Center);

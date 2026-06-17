@@ -23,6 +23,7 @@ namespace FranciumMultiCrossMod.Content.Extras
         public float Rotation;
 
         float Scale;
+        float Opacity;
 
         public static AuraThiefSigil Create(int maxLifetime, Vector2 position, Vector2 velocity, float rotation = 0f)
         {
@@ -40,7 +41,8 @@ namespace FranciumMultiCrossMod.Content.Extras
             Lifetime++;
             Progress = (float)Lifetime / (float)MaxLifetime;
 
-            Scale = MathHelper.Lerp(0f, 3f, Progress);
+            Opacity = MathHelper.Lerp(1f, 0f, Progress);
+            Scale = MathHelper.Lerp(0f, 4f, Progress);
 
             Position += Velocity;
 
@@ -52,17 +54,10 @@ namespace FranciumMultiCrossMod.Content.Extras
 
         public override void Draw(ref ParticleRendererSettings settings, SpriteBatch spritebatch)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(GetNamespacePath<AuraThiefSigil>()).Value;
+            Texture2D texture = ModContent.Request<Texture2D>("FranciumMultiCrossMod/Content/Extras/AuraThiefSigil").Value;
             spritebatch.UseBlendState(BlendState.Additive);
-            spritebatch.Draw(texture, Position - Main.screenPosition, null, ColorLib.LifeEcho, Rotation, texture.Size() / 2, Scale, SpriteEffects.None, 0f);
+            spritebatch.Draw(texture, Position - Main.screenPosition, null, ColorLib.LifeEcho * Opacity, Rotation, texture.Size() / 2, Scale, SpriteEffects.None, 0f);
             spritebatch.ResetToDefault();
-        }
-
-        //TODO: Put this in the regular Utility class.
-        public static string GetNamespacePath<T>()
-        {
-            return (typeof(T).Namespace ?? string.Empty)
-                .Replace('.', Path.DirectorySeparatorChar);
         }
 
     }

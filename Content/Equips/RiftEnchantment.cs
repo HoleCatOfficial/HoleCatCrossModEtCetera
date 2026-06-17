@@ -25,7 +25,7 @@ namespace FranciumMultiCrossMod.Content.Equips
         public static readonly int MultiplicativeDamageBonus = 8;
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(MultiplicativeDamageBonus);
 
-        public Shield RiftEnchantShield = new Shield("HollowShield3", 500, 200, ColorLib.Rift, new SoundStyle("FranciumMultiCrossMod/Assets/Audio/RiftEnchantmentShieldRegen"), DTAssetLib.Impacts.Deflect, DTAssetLib.Impacts.HeatseekerSilohSlam,
+        public Shield RiftEnchantShield = new Shield("HollowShield3", 1000, 200, ColorLib.Rift, new SoundStyle("FranciumMultiCrossMod/Assets/Audio/RiftEnchantmentShieldRegen"), DTAssetLib.Impacts.Deflect, DTAssetLib.Impacts.HeatseekerSilohSlam,
            new List<NetworkText>()
            {
                 NetworkText.FromLiteral($"{Main.LocalPlayer.name} felt a little hollow inside."),
@@ -33,7 +33,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                 NetworkText.FromLiteral($"{Main.LocalPlayer.name} fell victim to the eclipse."),
                 NetworkText.FromLiteral($"{Main.LocalPlayer.name} didnt have it in them to sustain their shield.")
            },
-           10, 16
+           50, 16
        );
 
         public override void SetDefaults()
@@ -62,7 +62,7 @@ namespace FranciumMultiCrossMod.Content.Equips
             player.GetArmorPenetration(DamageClass.Generic) += 6;
 
 
-           
+            ShieldManager.ActivateShield(RiftEnchantShield, player.whoAmI);
             
             if (player.TryGetModPlayer<RiftCanisterPlayer>(out var Canister))
             {
@@ -87,10 +87,7 @@ namespace FranciumMultiCrossMod.Content.Equips
                 .AddIngredient<RiftBroadsword>()
                 .AddIngredient<RiftClaymore>()
                 .AddIngredient<RiftPhasesaber>()
-<<<<<<< HEAD
                 .AddIngredient<RiftRipper>()
-=======
->>>>>>> 0e282864b50c13aa88a4092b9c15859b9b820c22
                 .AddIngredient<RiftScabbard>()
                 .AddIngredient<RiftElectroscythe>()
                 .AddIngredient<RiftScepter>()

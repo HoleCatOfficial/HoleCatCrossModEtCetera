@@ -89,7 +89,7 @@ namespace FranciumMultiCrossMod.Content.Equips
             {
                 if (item.DamageType == DamageClass.Melee || item.DamageType == DamageClass.MeleeNoSpeed)
                 {
-                    scale = 1.25f;
+                    scale = 1.15f;
                 }
             }
         }
