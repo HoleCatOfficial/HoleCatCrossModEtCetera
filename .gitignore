@@ -34,3 +34,4 @@ packages/
 # !*.cs
 # !*.json
 # !*.txt
+/Content/Melee/Netrahalis.cs
