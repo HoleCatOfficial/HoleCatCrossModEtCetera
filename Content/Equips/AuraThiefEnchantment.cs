@@ -26,13 +26,13 @@ using DestroyerTest.Content.SummonItems;
 using DestroyerTest.Content.Buffs;
 using DestroyerTest.Content.Equips.AuraThiefSet;
 using DestroyerTest.Content.MeleeWeapons;
-using InnoVault.PRT;
 using FranciumMultiCrossMod.Content.Extras;
 using OpusLib;
 using DestroyerTest.Content.Particles;
 using Terraria.DataStructures;
 using FranciumMultiCrossMod.Common;
 using FranciumMultiCrossMod.Content.Projectiles.player.Enchantment;
+using BreadLibrary.Core.Graphics.Particles;
 
 namespace FranciumMultiCrossMod.Content.Equips
 {
@@ -143,13 +143,17 @@ namespace FranciumMultiCrossMod.Content.Equips
                         if (!Flag2)
                         {
                             SoundEngine.PlaySound(SoundID.Item129, Player.Center);
-                            Opus.RadialSpreadParticle(PRTLoader.GetParticleID<SimpleParticle>(), 12, Player.Center, 1, Color.SkyBlue, 1f, 3f, RandomOffset: true);
+                            
+
+
+                        
                             Flag2 = true;
                         }
                         if (FranciumMultiCrossMod.EnchantmentKeybind1.JustPressed)
                         {
-                            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<AuraThiefSigil>(), Player.Center, Vector2.Zero, Color.SkyBlue, 1f, 2f);
-                            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<AuraThiefSigil>(), Player.Center, Vector2.Zero, Color.White, 0.75f, 1.75f);
+                            var P = AuraThiefSigil.Create(30, Player.Center, Vector2.Zero, 0f);
+                            ParticleEngine.Particles.Add(P);
+;
                             SoundEngine.PlaySound(SoundID.DD2_WyvernScream, Player.Center);
 
                             ImmTimer = 300;

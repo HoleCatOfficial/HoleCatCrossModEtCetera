@@ -1,43 +1,64 @@
-using System;
+using BreadLibrary.Core.Graphics.Particles;
+using BreadLibrary.Core.Utilities;
 using DestroyerTest.Common;
-using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
+using Terraria.Graphics.Renderers;
 using Terraria.ModLoader;
 
 namespace FranciumMultiCrossMod.Content.Extras
 {
-    public class AuraThiefSigil : BasePRT
+    public class AuraThiefSigil : BaseParticle<AuraThiefSigil>
     {
-        public override void SetProperty()
+        public int MaxLifetime;
+        public int Lifetime;
+        public float Progress;
+
+        public Vector2 Position;
+        public Vector2 Velocity;
+
+        public float Rotation;
+
+        float Scale;
+        float Opacity;
+
+        public static AuraThiefSigil Create(int maxLifetime, Vector2 position, Vector2 velocity, float rotation = 0f)
         {
-            PRTDrawMode = PRTDrawModeEnum.AdditiveBlend;
-            Lifetime = 9999;
-            ShouldKillWhenOffScreen = false;
+            AuraThiefSigil A = new();
+            A.MaxLifetime = maxLifetime;
+            A.Position = position;
+            A.Velocity = velocity;
+            A.Rotation = rotation;
+
+            return A;
         }
 
-        public override void AI()
+        public override void Update(ref ParticleRendererSettings settings)
         {
-            float endScale = ai[0]; // allow dynamic sizing
-            float growSpeed = 0.05f; // how fast it grows each tick
+            Lifetime++;
+            Progress = (float)Lifetime / (float)MaxLifetime;
 
-            if (Scale < endScale)
+            Opacity = MathHelper.Lerp(1f, 0f, Progress);
+            Scale = MathHelper.Lerp(0f, 4f, Progress);
+
+            Position += Velocity;
+
+            if (Lifetime > MaxLifetime)
             {
-                Scale += growSpeed;
+                ShouldBeRemovedFromRenderer = true;
             }
-
-            float fadeStart = endScale * 0.8f;
-            if (Scale >= fadeStart)
-            {
-                Color *= 0.9f;
-            }
-
-            // Kill once scale is basically done growing
-            if (Scale >= endScale)
-                Kill();
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch) => true;
+        public override void Draw(ref ParticleRendererSettings settings, SpriteBatch spritebatch)
+        {
+            Texture2D texture = ModContent.Request<Texture2D>("FranciumMultiCrossMod/Content/Extras/AuraThiefSigil").Value;
+            spritebatch.UseBlendState(BlendState.Additive);
+            spritebatch.Draw(texture, Position - Main.screenPosition, null, ColorLib.LifeEcho * Opacity, Rotation, texture.Size() / 2, Scale, SpriteEffects.None, 0f);
+            spritebatch.ResetToDefault();
+        }
+
     }
 }

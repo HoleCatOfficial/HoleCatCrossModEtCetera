@@ -17,12 +17,13 @@ using DestroyerTest.Content.RangedItems;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.Buffs;
 using Terraria.Audio;
-using InnoVault.PRT;
-using FranciumMultiCrossMod.Content.Particles;
 using DestroyerTest.Content.Equips.ScepterAccessories;
 using DestroyerTest.Content.Equips.Cards.RiftenDeck;
 using Terraria.DataStructures;
 using FranciumMultiCrossMod.Common;
+using OpusLib.Content.Particles;
+using Microsoft.Xna.Framework.Graphics;
+using BreadLibrary.Core.Graphics.Particles;
 
 namespace FranciumMultiCrossMod.Content.Equips
 {
@@ -139,7 +140,9 @@ namespace FranciumMultiCrossMod.Content.Equips
             if (currentCooldown == 1)
             {
                 SoundEngine.PlaySound(new SoundStyle("FranciumMultiCrossMod/Assets/Audio/HeliciteEnchantmentRegen"), Player.position);
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp2>(), Player.Center, Vector2.Zero, ColorLib.Rift, 3f);
+                BloomRingSharp Ring = new();
+                Ring.Prepare(Player.Center, Vector2.Zero, ColorLib.DarkRift2, 0.3f, 0.02f, 0.8f, BlendState.Additive);
+                ParticleEngine.Particles.Add(Ring);
             }
 
             if (currentCooldown <= 0)
@@ -169,15 +172,16 @@ namespace FranciumMultiCrossMod.Content.Equips
             {
                 Player.GetModPlayer<ScreenshakePlayer>().screenshakeTimer = 5;
                 Player.GetModPlayer<ScreenshakePlayer>().screenshakeMagnitude = 16;
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp1>(), Player.Center, Vector2.Zero, ColorLib.Rift, 1f);
+                BloomRingSharp Ring = new();
+                Ring.Prepare(Player.Center, Vector2.Zero, ColorLib.Rift, 0.3f, 0.01f, 1.8f, BlendState.Additive);
+                ParticleEngine.Particles.Add(Ring);
                 SoundEngine.PlaySound(SoundID.DeerclopsIceAttack with { Volume = 1.50f }, Player.position);
                 Player.statLife = Player.statLifeMax2 / 2;
                 CombatText.NewText(Player.getRect(), ColorLib.Rift, "Death Evaded!", true);
-                Player.AddBuff(ModContent.BuffType<DaylightOverload>(), 600); // 10 seconds of Bleeding debuff
+                Player.AddBuff(ModContent.BuffType<DaylightOverload>(), 600);
                 currentCooldown = Cooldown;
                 TimeDisplay = (Cooldown / 60);
                 hurtInfo.Damage = 0;
-                //Player.NinjaDodge(); // Optional: visual effect
             }
         }
             

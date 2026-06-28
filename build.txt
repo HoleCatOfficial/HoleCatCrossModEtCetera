@@ -1,5 +1,6 @@
-displayName = [c/bfbef1:Talid Mod]: Miscellaneous DLC
+displayName = [c/bfbef1:Talid Mod]: Fargo's Expanded DLC
 author = HoleCat
-version = 1.406
-modReferences = FargowiltasSouls, DestroyerTest, InnoVault
-dependencies = FargowiltasSouls, DestroyerTest, InnoVault
+version = 1.407
+modReferences = FargowiltasSouls, DestroyerTest, BreadLibrary, OpusLib
+dependencies = FargowiltasSouls, DestroyerTest, BreadLibrary, OpusLib
+

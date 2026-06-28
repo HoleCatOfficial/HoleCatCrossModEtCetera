@@ -1,6 +1,5 @@
 using System.Linq;
 using DestroyerTest.Content.Particles;
-using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
